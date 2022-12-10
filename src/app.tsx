@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Papa from "papaparse";
 
 const App = () => {
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const handle = setInterval(() => {
+      const currentDate = new Date();
+      setCurrentTime(
+        currentDate.getHours() +
+          ":" +
+          currentDate.getMinutes() +
+          ":" +
+          currentDate.getSeconds()
+      );
+
+      return () => {
+        clearInterval(handle);
+      };
+    }, 1000);
+  }, []);
+
   return (
     <div className="md:container mx-auto flex flex-col items-center justify-center h-screen bg-gray-200 space-y-2">
       <p className=" text-indigo-400 text-2xl">
@@ -27,6 +46,7 @@ const App = () => {
           }}
         />
       </div>
+      <div>{currentTime}</div>
     </div>
   );
 };
