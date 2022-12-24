@@ -36,6 +36,8 @@ const App = () => {
           onChange={(event) => {
             const reader = new FileReader();
             reader.onload = async (e) => {
+              if (e.target.result !== "string") return;
+
               const csv = e.target.result;
               console.log("onload csv", csv);
               const data = Papa.parse(csv);
