@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Papa from "papaparse";
+import packageConfig from "../package.json";
 
 const App = () => {
   const [currentTime, setCurrentTime] = useState("");
@@ -27,6 +28,7 @@ const App = () => {
       <p className=" text-indigo-400 text-2xl">
         React + Tailwind + Typescript + Electron = ❤
       </p>
+      <div>version {packageConfig.version}</div>
       <div>
         <input type="text" />
       </div>
