@@ -51,6 +51,14 @@ const App = () => {
         />
       </div>
       <div>{currentTime}</div>
+      <button
+        onClick={() => {
+          console.log("qweqwewq");
+          window.myAPI.testDatabase("from the renderer");
+        }}
+      >
+        click
+      </button>
     </div>
   );
 };
